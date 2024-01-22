@@ -1,0 +1,1 @@
+/fetch?id= seems to be vulnerable to blind timebased sqli.

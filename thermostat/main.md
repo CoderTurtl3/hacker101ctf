@@ -1,0 +1,1 @@
+Both of the flags could be found by decompiling the apk using [jadx](https://github.com/skylot/jadx) and looking around the files so nothing too interesting to report here.

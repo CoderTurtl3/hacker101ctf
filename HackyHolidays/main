@@ -1,0 +1,15 @@
+FLAG 0
+robots.txt
+
+FLAG 1
+/s3cr3t-ar3a
+Alert box data-info
+
+to get into the thing go to /apps-home
+
+FLAG 2
+/secure-login
+When you press a name on the list, you send a request with the persons id encoded with base64.
+To get the flag, you need to decode the id, change it to 1 and there you go.
+
+FLAG 3

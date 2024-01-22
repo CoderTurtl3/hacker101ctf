@@ -1,0 +1,18 @@
+Natasha Drew really wants to go to hacker camp but she doesn't have the grades. Hack into the OSUSEC student portal and give her all A's so she can go!
+
+First test the login for injections.
+'or 1=1# works and gets me in.
+
+At first sight it looks like nothing can be done on the page but taking a look at the pages source, there is a linked js script.
+assets/min/js/app.min.js
+Taking a look at the script it seems like there is functionality for changing the students grades.
+There is a check for s.admin and it seems like it's false by default.
+
+Using a devtools debugger add a breakpoint on the check and change the value of s.admin to true from the console.
+Now you can click on a name and change the grades.
+
+There is still a problem, there is no Natasha Drew on the list...
+
+Good thing is the form is submitted in /update-student/STUDENTS_FULL_NAME_ENCODED_WITH_B64
+
+So some base64 encoding and grade changing later we get the flag.
